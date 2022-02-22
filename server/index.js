@@ -11,7 +11,7 @@ app.use(cors())
 
 app.use(express.json())
 
-app.use(express.static(path.resolve(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, '..', 'build')));
 
 //available routes
 app.use('/api/auth', require('./routes/auth'))
