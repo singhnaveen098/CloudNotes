@@ -32,7 +32,7 @@ function Signup(props) {
     }
     return (
         <>
-            <div className='border-gray-300 shadow-lg border-2 mt-6 p-4 rounded-xl'>
+            <div className='border-gray-300 shadow-lg border-2 my-6 p-4 rounded-xl'>
                 <h1 className='text-2xl font-bold mb-4'>SignUp to CloudNotes :</h1>
                 <form onSubmit={handlesubmit}>
                     <div className="mb-3">
