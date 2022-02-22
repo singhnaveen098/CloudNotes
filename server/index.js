@@ -3,7 +3,7 @@ const path = require('path')
 const cors = require('cors')
 const app = express()
 const connecttomongo = require('./db')
-const port = process.env.PORT || 3001
+const port = process.env.PORT
 
 connecttomongo()
 
