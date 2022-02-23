@@ -19,8 +19,8 @@ function Navbar(props) {
         const json = await response.json();
         console.log(json)
         localStorage.removeItem('token')
-        history.push('/login')
         props.showalert('Account Deleted successfully', 'success')
+        history.push('/login')
     }
     return (
         <div>
