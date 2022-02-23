@@ -1,12 +1,26 @@
 import React from 'react'
 import {Link, useLocation, useHistory} from "react-router-dom";
 
-function Navbar() {
+function Navbar(props) {
+    const host = ""
     let location = useLocation();
     let history = useHistory()
     const handlelogout = ()=>{
         localStorage.removeItem('token')
         history.push('/login')
+    }
+    const handledeleteuser = async () => {
+        const response = await fetch(`${host}/api/auth/deleteuser`, {
+            method: 'DELETE',
+            headers: {
+                'auth-token': localStorage.getItem('token')
+            }
+        });
+        const json = await response.json();
+        console.log(json)
+        localStorage.removeItem('token')
+        history.push('/login')
+        props.showalert('Account Deleted successfully', 'success')
     }
     return (
         <div>
@@ -28,7 +42,15 @@ function Navbar() {
                         {!localStorage.getItem('token')?<form className="d-flex">
                             <Link className="btn btn-outline-primary mx-2 font-bold" to="/login" role="button">Login</Link>
                             <Link className="btn btn-outline-primary mx-2 font-bold" to="/signup" role="button">Sign up</Link>
-                        </form>:<button className="btn btn-outline-primary mx-2 font-bold" onClick={handlelogout}>LogOut</button>}
+                        </form>:<div className="dropdown">
+                            <span className="dropdown-toggle text-white font-bold" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i className="fa fa-user mx-2"></i>Profile
+                            </span>
+                            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                <li><button className="dropdown-item" onClick={handledeleteuser}>Delete Account<i class="mx-2 fa fa-trash-o"></i></button></li>
+                                <li><button className="dropdown-item" onClick={handlelogout}>LogOut<i class="mx-2 fa fa-sign-out"></i></button></li>
+                            </ul>
+                        </div>}
                     </div>
                 </div>
             </nav>
