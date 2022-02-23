@@ -45,7 +45,6 @@ function NoteState(props) {
       }
     });
     const json = await response.json();
-    console.log(json)
     const newnotes = notes.filter((note) => { return note._id !== id })
     setnotes(newnotes)
   }
@@ -63,7 +62,6 @@ function NoteState(props) {
       body: JSON.stringify({title, description, tag})
     });
     const json = await response.json();
-    console.log(json)
 
     //Logic to edit in client
     let newnotes = JSON.parse(JSON.stringify(notes))
