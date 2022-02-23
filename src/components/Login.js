@@ -47,7 +47,7 @@ function Login(props) {
                 </form>
                 <div className='mt-4'>
                     <p>New to CloudNotes? Create an account</p>
-                    <Link className="btn btn-outline-primary font-bold mt-2" to="/signup" role="button">Sign up</Link>
+                    <Link className="btn btn-outline-primary text-sky-600 font-bold mt-2" to="/signup" role="button">Sign up</Link>
                 </div>
             </div>
         </>
