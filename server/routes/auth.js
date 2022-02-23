@@ -101,5 +101,17 @@ router.post('/getuser', fetchuser, async (req, res) => {
     }
 })
 
+//Route 4:
+//Delete user using delete/api/auth/deleteuser.login required
+router.delete('/deleteuser', fetchuser, async (req, res) => {
+    try {
+        const userid = req.user.id
+        const user = await User.findByIdAndDelete(userid)
+        res.json({status:"User has been deleted", user: user})
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).send('INTERNAL SERVER ERROR')
+    }
+})
 
 module.exports = router
