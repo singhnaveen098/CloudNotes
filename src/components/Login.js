@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 function Login(props) {
-    const host = ""
+    const host = ''
     const [cred, setcred] = useState({ email: "", password: "" })
     let history = useHistory()
     const onchange = (e) => {
