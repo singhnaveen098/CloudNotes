@@ -80,13 +80,15 @@ function NoteState(props) {
   //Delete all notes
 
   const deleteallnote = async () => {
-    await fetch(`${host}/api/notes/deleteallnotes`, {
+    const response = await fetch(`${host}/api/notes/deleteallnotes`, {
       method: 'DELETE',
       headers: {
         'auth-token': localStorage.getItem('token')
       }
     });
-    setnotes([])
+    const json = await response.json();
+    if(json.status!==500){setnotes([])}
+    else console.log(json)
   }
 
   return (
