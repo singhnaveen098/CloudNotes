@@ -28,7 +28,7 @@ function Navbar(props) {
             }
         });
         const json = await response.json();
-        console.log(json)
+        if(json.status===500){console.log(json)}
         deleteallnote()
         localStorage.removeItem('token')
         props.showalert('Account Deleted successfully', 'success')
