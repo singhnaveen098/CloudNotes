@@ -57,7 +57,7 @@ function Navbar(props) {
                             <span className="dropdown-toggle text-white font-bold" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i className="fa fa-user mx-2"></i>Profile
                             </span>
-                            <ul className={`dropdown-menu ${width>992 ? 'dropdown-menu-end':''}`} aria-labelledby="dropdownMenuLink">
+                            <ul className={`dropdown-menu ${width>980 ? 'dropdown-menu-end':''}`} aria-labelledby="dropdownMenuLink">
                                 <li><button className="dropdown-item" onClick={handledeleteuser}>Delete Account<i className="mx-2 fa fa-trash-o"></i></button></li>
                                 <li><button className="dropdown-item" onClick={handlelogout}>LogOut<i className="mx-2 fa fa-sign-out"></i></button></li>
                             </ul>
