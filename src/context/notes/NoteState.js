@@ -76,9 +76,22 @@ function NoteState(props) {
     }
     setnotes(newnotes)
   }
+  
+  //Delete all notes
+
+  const deleteallnote = async () => {
+    const response = await fetch(`${host}/api/notes/deleteallnotes`, {
+      method: 'DELETE',
+      headers: {
+        'auth-token': localStorage.getItem('token')
+      }
+    });
+    const json = await response.json();
+    setnotes(json)
+  }
 
   return (
-    <NoteContext.Provider value={{ notes, addnote, deletenote, editnote, fetchnote }}>
+    <NoteContext.Provider value={{ notes, addnote, deletenote, editnote, fetchnote, deleteallnote }}>
       {props.children}
     </NoteContext.Provider>
   )
