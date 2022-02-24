@@ -85,8 +85,8 @@ router.delete('/deletenote/:id', fetchuser, async (req, res)=>{
 //Delete all notes of a user using delete/api/notes/deleteallnotes.login required
 router.delete('/deleteallnotes', fetchuser, async (req, res)=>{
     try {
-        await Notes.deleteMany({userid: req.user.id})
-        res.status(200).send('All Notes related to this user deleted successfully')
+        const notes = await Notes.deleteMany({userid: req.user.id})
+        res.json(notes)
     }//catch the error
      catch (error) {
         console.error(error.message)
