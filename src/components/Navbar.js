@@ -1,20 +1,17 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import {Link, useLocation, useHistory} from "react-router-dom";
 import NoteContext from '../context/notes/NoteContext'
 
 function Navbar(props) {
     const host = ""
+    const ref = useRef(null)
     const context = useContext(NoteContext)
     const { deleteallnote } = context
     let location = useLocation();
     let history = useHistory()
     const [width, setwidth] = useState()
     useEffect(() => {
-        function handleResize() {
-            setwidth(window.innerWidth)
-        }
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        setwidth(ref.current.offsetWidth);
     }, []);
     const handlelogout = ()=>{
         localStorage.removeItem('token')
@@ -58,7 +55,7 @@ function Navbar(props) {
                             <span className="dropdown-toggle text-white font-bold" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i className="fa fa-user mx-2"></i>Profile
                             </span>
-                            <ul className={`dropdown-menu ${width>980 ? 'dropdown-menu-end':''}`} aria-labelledby="dropdownMenuLink">
+                            <ul className={`dropdown-menu ${width>992 ? 'dropdown-menu-end':''}`} aria-labelledby="dropdownMenuLink">
                                 <li><button className="dropdown-item" onClick={handledeleteuser}>Delete Account<i className="mx-2 fa fa-trash-o"></i></button></li>
                                 <li><button className="dropdown-item" onClick={handlelogout}>LogOut<i className="mx-2 fa fa-sign-out"></i></button></li>
                             </ul>
