@@ -81,4 +81,17 @@ router.delete('/deletenote/:id', fetchuser, async (req, res)=>{
     }
 })
 
+//Route 5:
+//Delete all notes of a user using delete/api/notes/deleteallnotes.login required
+router.delete('/deleteallnotes', fetchuser, async (req, res)=>{
+    try {
+        const notes = await Notes.deleteMany({userid: req.user.id})
+        res.json(notes)
+    }//catch the error
+     catch (error) {
+        console.error(error.message)
+        res.status(500).send('INTERNAL SERVER ERROR')
+    }
+})
+
 module.exports = router
