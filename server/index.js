@@ -16,9 +16,6 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 //available routes
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
-app.get('/', (req, res)=>{
-    res.send(req.socket.remoteAddress)
-}
 
 app.listen(port, () => {
     console.log(`CloudNote backend listening at http://localhost:${port}`)
