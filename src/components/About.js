@@ -14,7 +14,7 @@ function About() {
             <div className=' border-gray-300 shadow-lg border-2 text-center my-16 p-4 rounded-xl'>
                 <h1 className='text-2xl font-bold mb-4'>About Me</h1>
                 <p className=' text-lg w-3/4 mx-auto'>Hello, I am Naveen Negi a web and app developer specializing in data structure, algorithims and MERN stack. I have hands-on experience in building web app and mobile apps currently learning ML. Feel free to contact me: </p>
-                <span className='text-lg font-bold'><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=singh.naveen098@gmail.com" target="_blank" className='hover:text-black'>singh.naveen098@gmail.com</a></span>
+                <span className='text-lg font-bold'><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=singh.naveen098@gmail.com" rel="noreferrer" target="_blank" className='hover:text-black'>singh.naveen098@gmail.com</a></span>
                 <h1 className='text-2xl font-bold my-16'>Languages</h1>
                 <div className='flex flex-wrap justify-between'>
                     <div className='flex-col p-10 mx-auto'>
