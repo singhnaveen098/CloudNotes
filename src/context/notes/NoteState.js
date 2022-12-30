@@ -38,7 +38,7 @@ function NoteState(props) {
   //Delete a note
 
   const deletenote = async (id) => {
-    const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+   await fetch(`${host}/api/notes/deletenote/${id}`, {
       method: 'DELETE',
       headers: {
         'auth-token': localStorage.getItem('token')
@@ -52,7 +52,7 @@ function NoteState(props) {
 
   const editnote = async (id, title, description, tag) => {
     //API call
-    const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+    await fetch(`${host}/api/notes/updatenote/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
